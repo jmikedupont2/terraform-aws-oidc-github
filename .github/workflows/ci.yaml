@@ -1,4 +1,4 @@
-name: CI
+name: TestAuth
 
 on:
   pull_request:
