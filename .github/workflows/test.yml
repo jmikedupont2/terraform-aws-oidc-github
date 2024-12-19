@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  workflow_dispatch:
+jobs:
+  caller-identity:
+    if: ${{ github.event_name == 'push' }}
+    name: Return the IAM user
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: ${{ secrets.AWS_REGION }}
+        role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github
+    - run: aws sts get-caller-identity
+
