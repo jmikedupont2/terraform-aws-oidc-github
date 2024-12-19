@@ -28,7 +28,8 @@ module "aws_oidc_github" {
   iam_role_policy_arns = [
     aws_iam_policy.terraform_pike.arn,
     aws_iam_policy.terraform_pike2.arn,
-    aws_iam_policy.terraform_pike3.arn
+    aws_iam_policy.terraform_pike3.arn,
+    aws_iam_policy.github_ssm_policy.arn
   ]
 }
 
@@ -546,3 +547,41 @@ resource "aws_iam_policy" "terraform_pike2" {
     ]
 })
 }
+
+
+# new swarms deploy permission
+resource "aws_iam_policy" "github_ssm_policy" {
+  name        = "GitHubSSMPolicy"
+  description = "Policy to allow SSM commands for GitHub role"
+  
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "ssm:SendCommand",
+          "ssm:ListCommands",
+          "ssm:GetCommandInvocation"
+        ],
+        Resource = "*"
+      },
+      {
+        Effect = "Allow",
+        Action = [
+          "ec2:DescribeInstances"
+        ],
+        Resource = "*"
+      }
+    ]
+  })
+}
+
+# resource "aws_iam_role_policy_attachment" "attach_github_ssm_policy" {
+#   policy_arn = aws_iam_policy.github_ssm_policy.arn
+#   role       = "github"  # Ensure this matches your IAM role
+# }
+
+# output "policy_arn" {
+#   value = aws_iam_policy.github_ssm_policy.arn
+# }
