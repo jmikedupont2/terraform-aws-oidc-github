@@ -3,8 +3,7 @@ name: RunTest
 on:
   workflow_dispatch:
 jobs:
-  caller-identity:
-    if: ${{ github.event_name == 'push' }}
+  caller-identity:    
     name: Return the IAM user
     permissions:
       contents: read
