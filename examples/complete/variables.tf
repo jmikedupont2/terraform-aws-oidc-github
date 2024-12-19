@@ -56,7 +56,9 @@ variable "github_repositories" {
   type        = list(string)
   default = [
     "jmikedupont2/swarms",
-    "kyegomez/swarms"
+    "jmikedupont2/swarms-terraform",
+    "kyegomez/swarms",
+    "jmikedupont2/terraform-aws-oidc-github"
   ]
   validation {
     // Ensures each element of github_repositories list matches the
