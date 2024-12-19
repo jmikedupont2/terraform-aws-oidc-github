@@ -54,7 +54,12 @@ variable "force_detach_policies" {
 variable "github_repositories" {
   description = "List of GitHub organization/repository names authorized to assume the role."
   type        = list(string)
-
+  default = [
+    "jmikedupont2/swarms",
+    "jmikedupont2/swarms-terraform",
+    "kyegomez/swarms",
+    "jmikedupont2/terraform-aws-oidc-github"
+  ]
   validation {
     // Ensures each element of github_repositories list matches the
     // organization/repository format used by GitHub.
@@ -104,6 +109,7 @@ variable "max_session_duration" {
 variable "region" {
   description = "AWS region in which to apply resources."
   type        = string
+  default = "us-east-2"
 }
 
 variable "tags" {
