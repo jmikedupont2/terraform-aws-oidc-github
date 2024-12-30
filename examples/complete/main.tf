@@ -1,4 +1,4 @@
-
+# this creates the role/github
 
 provider "aws" {
   region = var.region
@@ -131,7 +131,24 @@ resource "aws_iam_policy" "terraform_pike" {
             "Resource": [
                 "*"
             ]
-	}
+	},
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:CompleteLayerUpload",
+                "ecr:UploadLayerPart",
+                "ecr:InitiateLayerUpload",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:PutImage",
+                "ecr:BatchGetImage"
+            ],
+          "Resource": "arn:aws:ecr:us-east-2:916723593639:swarms/mcs"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ecr:GetAuthorizationToken",
+            "Resource": "*"
+        }
     ]
   }
     )
