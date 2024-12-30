@@ -58,7 +58,9 @@ variable "github_repositories" {
     "jmikedupont2/swarms",
     "jmikedupont2/swarms-terraform",
     "kyegomez/swarms",
-    "jmikedupont2/terraform-aws-oidc-github"
+    "jmikedupont2/swarms-MedicalCoderSwarm-deployment",
+    "The-Swarm-Corporation/MedicalCoderSwarm",
+    "jmikedupont2/terraform-aws-oidc-github",
   ]
   validation {
     // Ensures each element of github_repositories list matches the
