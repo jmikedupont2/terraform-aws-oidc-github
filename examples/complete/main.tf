@@ -142,7 +142,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "ecr:PutImage",
                 "ecr:BatchGetImage"
             ],
-          "Resource": "arn:aws:ecr:us-east-2:916723593639:swarms/mcs"
+          "Resource": [
+	    "arn:aws:ecr:us-east-2:916723593639:repository/swarms/mcs"
+	  ]
         },
         {
             "Effect": "Allow",
