@@ -2,7 +2,7 @@
 
 provider "aws" {
   region = var.region
-  profile = "swarms"
+  profile = "mdupont"
 }
 
 module "aws_oidc_github" {

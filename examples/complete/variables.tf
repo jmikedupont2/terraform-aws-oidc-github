@@ -55,12 +55,10 @@ variable "github_repositories" {
   description = "List of GitHub organization/repository names authorized to assume the role."
   type        = list(string)
   default = [
-    "jmikedupont2/swarms",
-    "jmikedupont2/swarms-terraform",
-    "kyegomez/swarms",
-    "jmikedupont2/swarms-MedicalCoderSwarm-deployment",
-    "The-Swarm-Corporation/MedicalCoderSwarm",
+    "jmikedupont2/ai-agent-terraform",
     "jmikedupont2/terraform-aws-oidc-github",
+    "meta-introspector/cloud-deployment-eliza",
+    "meta-introspector/eliza-fastify",    
   ]
   validation {
     // Ensures each element of github_repositories list matches the
