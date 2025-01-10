@@ -143,7 +143,8 @@ resource "aws_iam_policy" "terraform_pike" {
                 "ecr:BatchGetImage"
             ],
           "Resource": [
-	    "arn:aws:ecr:us-east-2:916723593639:repository/swarms/mcs"
+	    # FIXME need a variable
+	    "arn:aws:ecr:us-east-2:767503528736:repository/agent/eliza"
 	  ]
         },
         {
