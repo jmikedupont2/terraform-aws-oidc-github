@@ -2,7 +2,7 @@
 
 provider "aws" {
   region = var.region
-  profile = "mdupont"
+  profile = "ai-token-team"
 }
 
 module "aws_oidc_github" {

@@ -55,10 +55,9 @@ variable "github_repositories" {
   description = "List of GitHub organization/repository names authorized to assume the role."
   type        = list(string)
   default = [
-    "jmikedupont2/ai-agent-terraform",
-    "jmikedupont2/terraform-aws-oidc-github",
-    "meta-introspector/cloud-deployment-eliza",
-    "meta-introspector/eliza-fastify",    
+    "aitokenteam/ai-agent-terraform",
+    "aitokenteam/nbietz-eliza"
+
   ]
   validation {
     // Ensures each element of github_repositories list matches the
@@ -109,7 +108,7 @@ variable "max_session_duration" {
 variable "region" {
   description = "AWS region in which to apply resources."
   type        = string
-  default = "us-east-2"
+  default = "us-west-1"
 }
 
 variable "tags" {
