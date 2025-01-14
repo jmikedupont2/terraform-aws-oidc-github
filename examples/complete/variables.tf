@@ -58,7 +58,8 @@ variable "github_repositories" {
     "jmikedupont2/ai-agent-terraform",
     "jmikedupont2/terraform-aws-oidc-github",
     "meta-introspector/cloud-deployment-eliza",
-    "meta-introspector/eliza-fastify",    
+    "meta-introspector/eliza-fastify",
+    "meta-introspector/fastembed-js",    
   ]
   validation {
     // Ensures each element of github_repositories list matches the
