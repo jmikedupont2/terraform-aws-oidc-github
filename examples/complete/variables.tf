@@ -59,7 +59,9 @@ variable "github_repositories" {
     "jmikedupont2/terraform-aws-oidc-github",
     "meta-introspector/cloud-deployment-eliza",
     "meta-introspector/eliza-fastify",
-    "meta-introspector/fastembed-js",    
+    "meta-introspector/eliza-starter",
+    "meta-introspector/fastembed-js",
+    "meta-introspector/arm64-tokenizers",
   ]
   validation {
     // Ensures each element of github_repositories list matches the
