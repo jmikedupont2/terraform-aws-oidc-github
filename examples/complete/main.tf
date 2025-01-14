@@ -133,25 +133,26 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
 	},
         {
-            "Effect": "Allow",
-            "Action": [
-                "ecr:CompleteLayerUpload",
-                "ecr:UploadLayerPart",
-                "ecr:InitiateLayerUpload",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:PutImage",
-                "ecr:BatchGetImage"
-            ],
+          "Effect": "Allow",
+          "Action": [
+            "ecr:CompleteLayerUpload",
+            "ecr:UploadLayerPart",
+            "ecr:InitiateLayerUpload",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:PutImage",
+            "ecr:BatchGetImage",
+	    "ecr:CreateRepository"
+          ],
           "Resource": [
 	    # FIXME need a variable
-	    "arn:aws:ecr:us-east-2:767503528736:repository/agent/eliza"
+	    "arn:aws:ecr:us-east-2:767503528736:repository/*"
 	  ]
         },
-        {
-            "Effect": "Allow",
-            "Action": "ecr:GetAuthorizationToken",
-            "Resource": "*"
-        }
+      {
+        "Effect": "Allow",
+        "Action": "ecr:GetAuthorizationToken",
+        "Resource": "*"
+      }
     ]
   }
     )
